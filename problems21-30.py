@@ -1,3 +1,6 @@
+import itertools
+
+
 def divisors(n):
     return (x for x in range(1, int(n/2+1)) if n % x == 0)
 
@@ -44,4 +47,35 @@ def problem23():
     print(sum(n for n in range(1, 28124) if not sum_of_two_abundant_numbers(n, abundant_numbers)))
 
 
-problem23()
+def problem24():
+    """
+    Lexicographic permutations
+    """
+    print("".join(list(itertools.permutations('0123456789'))[999999]))
+
+
+def problem25():
+    """
+    1000-digit Fibonacci number
+    """
+    prev1 = 1
+    prev2 = 2
+    new = 0
+    index = 3
+    while len(str(new)) != 1000:
+        new = prev1 + prev2
+        prev1 = prev2
+        prev2 = new
+        index += 1
+    print(index)
+
+
+def problem26():
+    """
+    Reciprocal cycles, incomplete!
+    """
+    for d in range(2, 100):
+        print(1/d, str(1/d).replace('0.', ''))
+
+
+problem26()
